@@ -21,68 +21,31 @@
       color: #fff; 
       font-family: 'Inter', sans-serif; 
       overflow-x: hidden;
-      /* Subtle cyberpunk grid background */
       background-image: 
         linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
       background-size: 30px 30px;
     }
 
+    /* Updated Hero Section for Visual Banner */
     .hero { 
-      min-height: 100vh; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
+      padding: 80px 20px 40px; 
       text-align: center; 
-      position: relative;
-      padding: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      background: radial-gradient(circle, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0) 80%);
-      padding: 40px;
-      border-radius: 20px;
+    .hero img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 240, 255, 0.2);
+      border: 1px solid rgba(0, 240, 255, 0.2);
+      display: block;
     }
 
-    .glitched-records {
-      font-size: 1.2rem; 
-      letter-spacing: 5px; 
-      color: var(--cyan);
-      text-transform: uppercase;
-      margin-bottom: 10px;
-      text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
-    }
-
-    /* Glitch Effect for Logo */
-    .logo { 
-      font-size: clamp(3rem, 8vw, 6rem); 
-      font-weight: 900; 
-      letter-spacing: -2px; 
-      color: #fff;
-      text-shadow: 
-        3px 3px 0 var(--magenta),
-        -3px -3px 0 var(--cyan);
-      animation: glitch-pulse 3s infinite;
-      text-transform: uppercase;
-      margin: 10px 0;
-    }
-
-    @keyframes glitch-pulse {
-      0% { text-shadow: 3px 3px 0 var(--magenta), -3px -3px 0 var(--cyan); }
-      48% { text-shadow: 3px 3px 0 var(--magenta), -3px -3px 0 var(--cyan); }
-      50% { text-shadow: -3px 3px 0 var(--magenta), 3px -3px 0 var(--cyan); transform: translate(2px, 2px); }
-      52% { text-shadow: 3px 3px 0 var(--magenta), -3px -3px 0 var(--cyan); transform: translate(0, 0); }
-      100% { text-shadow: 3px 3px 0 var(--magenta), -3px -3px 0 var(--cyan); }
-    }
-
-    .tagline { 
-      font-size: clamp(1.2rem, 3vw, 1.8rem); 
-      margin: 20px 0 40px 0; 
-      color: var(--magenta); 
-      font-weight: 700;
-      text-shadow: 0 0 20px rgba(255, 0, 170, 0.4);
+    .hero-actions {
+      margin-top: 40px;
     }
 
     .btn { 
@@ -91,7 +54,7 @@
       background: linear-gradient(45deg, var(--cyan), var(--magenta)); 
       color: #000; 
       font-weight: 900; 
-      border-radius: 4px; /* Sharper edges for cyberpunk feel */
+      border-radius: 4px; 
       text-decoration: none; 
       font-size: 1.2rem; 
       margin: 10px; 
@@ -120,7 +83,7 @@
     }
 
     section { 
-      padding: 80px 20px; 
+      padding: 60px 20px; 
       max-width: 1000px; 
       margin: 0 auto; 
     }
@@ -136,7 +99,18 @@
       letter-spacing: 2px;
     }
 
-    /* Neon Card Styles */
+    /* Rules Typography & Styling */
+    h3 {
+      color: var(--cyan);
+      font-size: 1.5rem;
+      margin-top: 40px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+      padding-bottom: 10px;
+    }
+
     .neon-card {
       background: var(--panel);
       padding: 40px;
@@ -144,7 +118,6 @@
       border-left: 4px solid var(--cyan);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
       position: relative;
-      overflow: hidden;
     }
 
     .neon-card::before {
@@ -156,11 +129,25 @@
       opacity: 0.5;
     }
 
-    .highlight { color: var(--cyan); font-weight: 700; }
-    .warning { color: var(--magenta); font-weight: 700; }
-
     .content { line-height: 1.8; font-size: 1.15rem; }
     
+    .content ul, .content ol {
+      margin-bottom: 25px;
+      padding-left: 20px;
+    }
+
+    .content li {
+      margin-bottom: 10px;
+    }
+
+    .content p {
+      margin-bottom: 20px;
+    }
+
+    .content strong {
+      color: var(--magenta);
+    }
+
     .judges { 
       display: grid; 
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
@@ -199,14 +186,10 @@
 <body>
 
   <div class="hero">
-    <div class="hero-content">
-      <div class="glitched-records">Presented by Glitched Records</div>
-      <div class="logo">ALGORITHM IDOL</div>
-      <div class="tagline">The Algorithm Saves You.<br>The Humans Vote You Out.</div>
-      <div style="margin-top: 30px;">
-        <a href="#submit" class="btn">SUBMIT YOUR TRACK</a>
-        <a href="#rules" class="btn btn-outline">FULL RULES</a>
-      </div>
+    <img src="logobannerai.jpg" alt="Algorithm Idol: Presented by Glitched Records">
+    <div class="hero-actions">
+      <a href="#submit" class="btn">SUBMIT YOUR TRACK</a>
+      <a href="#rules" class="btn btn-outline">FULL RULES</a>
     </div>
   </div>
 
@@ -214,28 +197,109 @@
     <h2>50 Artists. 1 is Human.<br><span style="-webkit-text-fill-color: #fff;">Find the Glitch.</span></h2>
     <div class="neon-card content" style="border-left-color: var(--magenta);">
       <p style="text-align:center; margin:0;">
-        Every track you hear is 100% AI-generated… <span class="warning">except one.</span><br><br>
+        Every track you hear is 100% AI-generated… <strong>except one.</strong><br><br>
         One contestant is 100% human — traditional DAW, zero AI, pure organic production.
         They’re hiding in plain sight. The judges don’t know. The audience doesn’t know.<br><br>
-        <strong style="font-size: 1.4rem; color: #fff;">Your job: Find the Glitch.</strong><br><br>
+        <strong style="font-size: 1.4rem;">Your job: Find the Glitch.</strong><br><br>
         <span style="font-size: 0.9rem; color: #888;">Finale reveal only. Winner announced first.</span>
       </p>
     </div>
   </section>
 
   <section id="rules">
-    <h2>Official Rules</h2>
+    <h2>OFFICIAL RULES — ALGORITHM IDOL</h2>
     <div class="neon-card content">
-      <p><span class="highlight">Week 1: The Great Purge (50 → 25)</span><br>
-      Algorithm cuts bottom 15. Judges cut bottom 10 from the remaining 35. NEXUS awards 5 Safety Passes.</p>
-      <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 20px 0;">
-      <p><span class="highlight">Core Format (Weeks 2–10)</span><br>
-      Judges + Algorithm = Safety<br>
-      Pure human vote = <span class="warning">Elimination</span><br>
-      NEXUS drops 1 Glitch Power every week.</p>
-      <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 20px 0;">
-      <p>All songs must be in English (80%+ lyrics).</p>
-      <p style="color: #888; font-size: 0.95rem; margin-top: 30px;">* Full rules and official submission form unlocking in 48 hours.</p>
+      
+      <p style="text-align: center; font-size: 1.3rem;"><strong>“The Algorithm Saves You. The Humans Vote You Out.”</strong><br>
+      <span style="font-size: 1.1rem; color: #fff;">Presented by <strong>Glitched Records</strong> | Hosted by the Trophy Hoe</span></p>
+
+      <h3>Season Overview</h3>
+      <ul>
+      <li>10-week TikTok competition (Week 1 Purge + 8 competition weeks + live Finale).</li>
+      <li>100% AI-generated music only (Suno, Udio, stems + custom prompts, etc.), except for the one secret human contestant.</li>
+      <li>One secret human contestant (traditional DAW, zero AI) hidden among the 50 entrants — the “Find the Glitch” twist.</li>
+      <li>All songs must be in English (80%+ lyrics) for fair voting and judging.</li>
+      <li>Open to creators 18+.</li>
+      <li>Identity verification required prior to prize delivery.</li>
+      </ul>
+
+      <h3>Week 1: The Great Purge (50 → 25)</h3>
+      <ul>
+      <li>Open submissions to 50 contestants.</li>
+      <li>Submissions open from announcement until Wednesday the week prior to show start.</li>
+      <li>Combined score elimination of Algorithm + Judges reduces the field from 50 to 25.</li>
+      <li>We encourage all 50 artists to make full use of their network for likes, shares, comments, duets, and live views from day one.</li>
+      </ul>
+
+      <h3>Core Format (Weeks 2–10)</h3>
+      <ol>
+      <li><strong style="color: var(--cyan);">Safety Round</strong> (Judges + Algorithm)<br>
+      5 human judges score each track (1–10). Scores averaged into Panel Score.<br>
+      Algorithm Score contributes <strong>50% to the combined safety score</strong>.<br>
+      Combined score = Top X safe (“The Algorithm has spoken — you’re safe!”).</li>
+      
+      <li style="margin-top: 15px;"><strong style="color: var(--magenta);">Elimination Round</strong> (Pure Human Vote)<br>
+      Bottom group goes to public vote only.<br>
+      Fans must vote using the hashtag <strong>#Save[contestantname]week[number]</strong>.<br>
+      Lowest vote-getter is eliminated.</li>
+      </ol>
+
+      <h3>NEXUS — The AI Judge</h3>
+      <p>After safety is announced, <strong>NEXUS</strong> (the living algorithm entity) awakens and injects <strong>ONE GLITCH POWER</strong> that carries into the next challenge.</p>
+
+      <h3>The Secret Human Twist — “Find the Glitch”</h3>
+      <p>One of the 50 original contestants is <strong>100% human</strong> (traditional DAW, zero AI tools).<br>
+      The human is treated exactly like every other contestant.<br>
+      Judges and audience do <strong>not</strong> know who it is until the Finale reveal.<br>
+      <strong>Launch / Week 1:</strong> “50 Artists. 1 is Human. Find the Glitch.”<br>
+      <strong>Finale (Top 3):</strong> Winner announced first. Then — if the human made Top 3 — they step forward and reveal: “I never touched AI once.”</p>
+      <p>This twist settles the “AI has no soul” debate in public, on camera, forever.</p>
+
+      <h3>Human Judges</h3>
+      <p>Core 5-person panel (TBA — more names to be announced soon).</p>
+      <p>Judging format: One live judging session per week (60–90 minutes).</p>
+
+      <h3>Weekly Flow & Challenges</h3>
+      <ul>
+      <li>Submissions open <strong>Tuesday 12:00 PM PST</strong> and close <strong>Wednesday 12:00 PM PST</strong> (exactly 24 hours) for Weeks 2–10.</li>
+      <li>Challenge announced same day as the live judging stream on Friday.</li>
+      <li>Friday: Live judging session + safety reveal. NEXUS Glitch Power reveal closes every live stream.</li>
+      <li>Weekend: Popular vote elimination opens Friday immediately after live stream and closes Monday morning at 12:01 AM PST.</li>
+      </ul>
+
+      <p><strong>Sample Challenges</strong><br>
+      - Signature Track* (original submission)<br>
+      - Viral Banger<br>
+      - AI Music Video Week</p>
+      <p>Actual challenges will be announced every week during the live judging stream.</p>
+      <p>All 25 contestants will be asked to submit directly to Glitched Records a second track that will be used exclusively as a head-to-head sudden death battle track showcasing their best work in the event of an elimination tie during the main 8 weeks of the show. Judges scores will be the final determining factor in cases of sudden death battle. In case of a tie during the finale live stream, the tracks in question will both be run through NEXUS who will determine the tie breaker.</p>
+
+      <h3>Entry & Eligibility</h3>
+      <ul>
+      <li>Open to creators 18+.</li>
+      <li>Must disclose AI tools used in comments or pinned note.</li>
+      <li>By entering you grant Glitched Records and partners a perpetual, non-exclusive, worldwide, royalty-free license to use your submission, performance, name, image, likeness, and any AI-generated persona for promotion of the show.</li>
+      <li>Honor system + random prompt/stem verification possible.</li>
+      <li>No previous major-label distribution.</li>
+      <li>All open-call submissions for the top 50 must use <strong>#IAmTheAlgorithmIdol</strong></li>
+      </ul>
+
+      <h3>Prizes</h3>
+      <ul>
+      <li>Weekly: Spotlights, judge shoutouts, playlist adds.</li>
+      <li>Finale Winner: Cash + lifetime Suno membership (or equivalent perpetual high-tier credits) + Glitched Records merch drop + special prizes provided by our judging panel TBA + full promotional push.</li>
+      </ul>
+
+      <h3>Legal & Safety Disclaimers</h3>
+      <ul>
+      <li>All music must be original, English-language, and AI-generated by the contestant (except the one planned human twist). Glitched Records reserves the right to request full prompt/stem verification.</li>
+      <li>The secret human contestant is a planned production twist and will be revealed publicly.</li>
+      <li>Voting, Algorithm Scores, and Glitch Powers are final. No appeals.</li>
+      <li>Prizes subject to sponsor confirmation. Taxes are winner’s responsibility.</li>
+      <li>Contest complies with TikTok Community Guidelines. Any violation = immediate disqualification.</li>
+      <li>Glitched Records is not responsible for TikTok algorithm changes, technical issues, or lost votes.</li>
+      </ul>
+
     </div>
   </section>
 
