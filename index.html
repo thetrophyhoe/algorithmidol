@@ -6,58 +6,241 @@
   <title>Algorithm Idol • The Algorithm Saves You. The Humans Vote You Out.</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-    body { margin:0; padding:0; background:#0a0a0a; color:#fff; font-family:'Inter',sans-serif; overflow-x:hidden; }
-    .hero { height:100vh; background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)), url('https://i.imgur.com/your-hero-bg.jpg') center/cover; display:flex; align-items:center; justify-content:center; text-align:center; position:relative; }
-    .logo { font-size:4.5rem; font-weight:900; letter-spacing:-4px; background:linear-gradient(90deg,#00f0ff,#ff00aa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; text-shadow:0 0 40px rgba(0,240,255,0.5); }
-    .tagline { font-size:1.8rem; margin:20px 0; color:#ff00aa; }
-    .btn { display:inline-block; padding:18px 40px; background:linear-gradient(#00f0ff,#ff00aa); color:#000; font-weight:900; border-radius:50px; text-decoration:none; font-size:1.3rem; margin:20px 10px; transition:0.3s; }
-    .btn:hover { transform:scale(1.05); box-shadow:0 0 40px rgba(255,0,170,0.6); }
-    section { padding:80px 20px; max-width:1100px; margin:0 auto; }
-    h2 { font-size:2.5rem; text-align:center; margin-bottom:40px; background:linear-gradient(90deg,#00f0ff,#ff00aa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-    .judges { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:20px; }
-    .judge { text-align:center; }
-    .content { line-height:1.7; font-size:1.1rem; }
-    footer { background:#000; padding:40px; text-align:center; font-size:0.9rem; }
+    
+    :root {
+      --cyan: #00f0ff;
+      --magenta: #ff00aa;
+      --dark: #0a0a0a;
+      --panel: #111111;
+    }
+
+    body { 
+      margin: 0; 
+      padding: 0; 
+      background-color: var(--dark); 
+      color: #fff; 
+      font-family: 'Inter', sans-serif; 
+      overflow-x: hidden;
+      /* Subtle cyberpunk grid background */
+      background-image: 
+        linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+
+    .hero { 
+      min-height: 100vh; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      text-align: center; 
+      position: relative;
+      padding: 20px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      background: radial-gradient(circle, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0) 80%);
+      padding: 40px;
+      border-radius: 20px;
+    }
+
+    .glitched-records {
+      font-size: 1.2rem; 
+      letter-spacing: 5px; 
+      color: var(--cyan);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+    }
+
+    /* Glitch Effect for Logo */
+    .logo { 
+      font-size: clamp(3rem, 8vw, 6rem); 
+      font-weight: 900; 
+      letter-spacing: -2px; 
+      color: #fff;
+      text-shadow: 
+        3px 3px 0 var(--magenta),
+        -3px -3px 0 var(--cyan);
+      animation: glitch-pulse 3s infinite;
+      text-transform: uppercase;
+      margin: 10px 0;
+    }
+
+    @keyframes glitch-pulse {
+      0% { text-shadow: 3px 3px 0 var(--magenta), -3px -3px 0 var(--cyan); }
+      48% { text-shadow: 3px 3px 0 var(--magenta), -3px -3px 0 var(--cyan); }
+      50% { text-shadow: -3px 3px 0 var(--magenta), 3px -3px 0 var(--cyan); transform: translate(2px, 2px); }
+      52% { text-shadow: 3px 3px 0 var(--magenta), -3px -3px 0 var(--cyan); transform: translate(0, 0); }
+      100% { text-shadow: 3px 3px 0 var(--magenta), -3px -3px 0 var(--cyan); }
+    }
+
+    .tagline { 
+      font-size: clamp(1.2rem, 3vw, 1.8rem); 
+      margin: 20px 0 40px 0; 
+      color: var(--magenta); 
+      font-weight: 700;
+      text-shadow: 0 0 20px rgba(255, 0, 170, 0.4);
+    }
+
+    .btn { 
+      display: inline-block; 
+      padding: 18px 40px; 
+      background: linear-gradient(45deg, var(--cyan), var(--magenta)); 
+      color: #000; 
+      font-weight: 900; 
+      border-radius: 4px; /* Sharper edges for cyberpunk feel */
+      text-decoration: none; 
+      font-size: 1.2rem; 
+      margin: 10px; 
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 1px solid transparent;
+    }
+
+    .btn:hover { 
+      transform: translateY(-3px); 
+      box-shadow: 0 10px 30px rgba(255, 0, 170, 0.4); 
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid var(--cyan);
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+    }
+
+    .btn-outline:hover {
+      background: rgba(0, 240, 255, 0.1);
+      box-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+      color: var(--cyan);
+    }
+
+    section { 
+      padding: 80px 20px; 
+      max-width: 1000px; 
+      margin: 0 auto; 
+    }
+
+    h2 { 
+      font-size: 2.5rem; 
+      text-align: center; 
+      margin-bottom: 50px; 
+      background: linear-gradient(90deg, var(--cyan), var(--magenta)); 
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent; 
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* Neon Card Styles */
+    .neon-card {
+      background: var(--panel);
+      padding: 40px;
+      border-radius: 8px;
+      border-left: 4px solid var(--cyan);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .neon-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+      opacity: 0.5;
+    }
+
+    .highlight { color: var(--cyan); font-weight: 700; }
+    .warning { color: var(--magenta); font-weight: 700; }
+
+    .content { line-height: 1.8; font-size: 1.15rem; }
+    
+    .judges { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+      gap: 20px; 
+    }
+
+    .judge { 
+      background: var(--panel);
+      padding: 30px 20px;
+      text-align: center; 
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      border: 1px solid rgba(255, 0, 170, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .judge:hover {
+      border-color: var(--magenta);
+      box-shadow: 0 0 20px rgba(255, 0, 170, 0.3);
+      transform: translateY(-5px);
+    }
+
+    footer { 
+      background: #000; 
+      padding: 60px 20px; 
+      text-align: center; 
+      font-size: 0.9rem; 
+      border-top: 1px solid rgba(0, 240, 255, 0.2);
+    }
+
+    footer p { color: #888; }
+    footer span { color: var(--cyan); }
   </style>
 </head>
 <body>
+
   <div class="hero">
-    <div>
-      <div style="font-size:1.1rem; letter-spacing:4px; opacity:0.8;">GLITCHED RECORDS PRESENTS</div>
+    <div class="hero-content">
+      <div class="glitched-records">Presented by Glitched Records</div>
       <div class="logo">ALGORITHM IDOL</div>
       <div class="tagline">The Algorithm Saves You.<br>The Humans Vote You Out.</div>
-      <a href="#submit" class="btn">SUBMIT YOUR TRACK NOW</a>
-      <a href="#rules" class="btn" style="background:#111;color:#fff;">FULL RULES</a>
+      <div style="margin-top: 30px;">
+        <a href="#submit" class="btn">SUBMIT YOUR TRACK</a>
+        <a href="#rules" class="btn btn-outline">FULL RULES</a>
+      </div>
     </div>
   </div>
 
   <section id="findtheglitch">
-    <h2>50 ARTISTS. 1 IS HUMAN.<br>FIND THE GLITCH.</h2>
-    <p class="content" style="text-align:center;max-width:800px;margin:0 auto;">
-      Every track you hear is 100% AI-generated… except one.<br>
-      One contestant is 100% human — traditional DAW, zero AI, pure organic production.<br>
-      They’re hiding in plain sight. The judges don’t know. The audience doesn’t know.<br>
-      <strong>Your job: Find the Glitch.</strong><br><br>
-      Finale reveal only. Winner announced first.
-    </p>
+    <h2>50 Artists. 1 is Human.<br><span style="-webkit-text-fill-color: #fff;">Find the Glitch.</span></h2>
+    <div class="neon-card content" style="border-left-color: var(--magenta);">
+      <p style="text-align:center; margin:0;">
+        Every track you hear is 100% AI-generated… <span class="warning">except one.</span><br><br>
+        One contestant is 100% human — traditional DAW, zero AI, pure organic production.
+        They’re hiding in plain sight. The judges don’t know. The audience doesn’t know.<br><br>
+        <strong style="font-size: 1.4rem; color: #fff;">Your job: Find the Glitch.</strong><br><br>
+        <span style="font-size: 0.9rem; color: #888;">Finale reveal only. Winner announced first.</span>
+      </p>
+    </div>
   </section>
 
   <section id="rules">
-    <h2>OFFICIAL RULES</h2>
-    <div class="content">
-      <p><strong>Week 1: The Great Purge (50 → 25)</strong><br>
+    <h2>Official Rules</h2>
+    <div class="neon-card content">
+      <p><span class="highlight">Week 1: The Great Purge (50 → 25)</span><br>
       Algorithm cuts bottom 15. Judges cut bottom 10 from the remaining 35. NEXUS awards 5 Safety Passes.</p>
-      <p><strong>Core Format (Weeks 2–10)</strong><br>
+      <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 20px 0;">
+      <p><span class="highlight">Core Format (Weeks 2–10)</span><br>
       Judges + Algorithm = Safety<br>
-      Pure human vote = Elimination<br>
-      NEXUS drops 1 Glitch Power every week</p>
+      Pure human vote = <span class="warning">Elimination</span><br>
+      NEXUS drops 1 Glitch Power every week.</p>
+      <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 20px 0;">
       <p>All songs must be in English (80%+ lyrics).</p>
-      <p>Full rules + submission form coming in 48 hours.</p>
+      <p style="color: #888; font-size: 0.95rem; margin-top: 30px;">* Full rules and official submission form unlocking in 48 hours.</p>
     </div>
   </section>
 
   <section id="judges">
-    <h2>THE PANEL</h2>
+    <h2>The Panel</h2>
     <div class="judges">
       <div class="judge">djScoe</div>
       <div class="judge">Rawbeatzz</div>
@@ -67,14 +250,17 @@
     </div>
   </section>
 
-  <section id="submit">
-    <h2>SUBMISSIONS OPEN SOON</h2>
-    <p style="text-align:center;font-size:1.4rem;">#AlgorithmIdol + Google Form link dropping in 48 hours</p>
+  <section id="submit" style="text-align: center; padding-bottom: 120px;">
+    <h2>Submissions Open Soon</h2>
+    <p style="font-size:1.4rem; color: var(--cyan);">#AlgorithmIdol</p>
+    <p style="color: #888;">Portal opens in 48 hours.</p>
   </section>
 
   <footer>
+    <p>Hosted by <span>The Trophy Hoe</span></p>
     <p>Contact: @TheTrophyHoe | stayglitched@glitchedrecords.com</p>
-    <p>AlgorithmIdol.com © Glitched Records 2026</p>
+    <p style="margin-top: 20px; font-size: 0.8rem;">AlgorithmIdol.com © Glitched Records 2026</p>
   </footer>
+
 </body>
 </html>
