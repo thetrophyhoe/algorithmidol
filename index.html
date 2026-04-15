@@ -27,6 +27,7 @@
       background-size: 30px 30px;
     }
 
+    /* Hero Section */
     .hero { 
       padding: 60px 20px 40px; 
       text-align: center; 
@@ -41,6 +42,17 @@
       box-shadow: 0 10px 50px rgba(0, 240, 255, 0.3);
       border: 1px solid rgba(0, 240, 255, 0.2);
       display: block;
+      margin-bottom: 20px;
+    }
+
+    .video-container {
+      max-width: 900px; 
+      margin: 40px auto; 
+      position: relative;
+      border: 1px solid rgba(255, 0, 170, 0.3);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(255, 0, 170, 0.15);
     }
 
     .hero-actions {
@@ -167,6 +179,20 @@
 
   <div class="hero">
     <img src="logobannerai.jpg" alt="Algorithm Idol Banner">
+
+    <div class="video-container">
+      <iframe 
+        width="100%" 
+        height="auto" 
+        style="aspect-ratio: 16/9; display: block;" 
+        src="https://www.youtube.com/embed/64DEcfG8CmQ?autoplay=1&mute=1&loop=1&playlist=64DEcfG8CmQ&playsinline=1&rel=0" 
+        title="Algorithm Idol Teaser" 
+        frameborder="0" 
+        allow="autoplay; clipboard-write; encrypted-media" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
     <div class="hero-actions">
       <a href="#how-to-enter" class="btn">SUBMIT TOP 50 TRACK</a>
       <a href="#rules" class="btn btn-outline">FULL RULES</a>
