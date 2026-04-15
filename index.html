@@ -30,7 +30,7 @@
     .hero { 
       padding: 60px 20px 40px; 
       text-align: center; 
-      max-width: 1000px; 
+      max-width: 1000px;
       margin: 0 auto;
     }
 
@@ -41,9 +41,13 @@
       box-shadow: 0 10px 50px rgba(0, 240, 255, 0.3);
       border: 1px solid rgba(0, 240, 255, 0.2);
       display: block;
-      margin-bottom: 20px;
     }
 
+    .hero-actions {
+      margin-top: 40px;
+    }
+
+    /* Video Style Added to Support the Embed */
     .video-container {
       max-width: 900px; 
       margin: 40px auto; 
@@ -52,10 +56,6 @@
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 0 30px rgba(255, 0, 170, 0.15);
-    }
-
-    .hero-actions {
-      margin-top: 40px;
     }
 
     .btn { 
@@ -71,6 +71,7 @@
       transition: all 0.3s ease;
       text-transform: uppercase;
       letter-spacing: 1px;
+      border: 1px solid transparent;
     }
 
     .btn:hover { 
@@ -82,6 +83,13 @@
       background: transparent;
       color: #fff;
       border: 2px solid var(--cyan);
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+    }
+
+    .btn-outline:hover {
+      background: rgba(0, 240, 255, 0.1);
+      box-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+      color: var(--cyan);
     }
 
     section { 
@@ -118,6 +126,7 @@
       border-radius: 8px;
       border-left: 4px solid var(--cyan);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      position: relative;
     }
 
     .content { line-height: 1.8; font-size: 1.15rem; }
@@ -126,6 +135,7 @@
     .content p { margin-bottom: 20px; }
     .content strong { color: var(--magenta); }
 
+    /* Judges Grid */
     .judges-grid { 
       display: grid; 
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
@@ -142,6 +152,15 @@
       color: rgba(255, 255, 255, 0.3);
       border: 1px dashed rgba(0, 240, 255, 0.3);
       text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: all 0.4s ease;
+    }
+
+    .judge-slot:hover {
+      border: 1px solid var(--cyan);
+      background: rgba(0, 240, 255, 0.05);
+      color: var(--cyan);
+      text-shadow: 0 0 10px var(--cyan);
     }
 
     footer { 
@@ -159,6 +178,10 @@
 
   <div class="hero">
     <img src="logobannerai.jpg" alt="Algorithm Idol Banner">
+    <div class="hero-actions">
+      <a href="#how-to-enter" class="btn">SUBMIT TOP 50 TRACK</a>
+      <a href="#rules" class="btn btn-outline">FULL RULES</a>
+    </div>
 
     <div class="video-container">
       <iframe 
@@ -171,11 +194,6 @@
         allow="autoplay; clipboard-write; encrypted-media" 
         allowfullscreen>
       </iframe>
-    </div>
-
-    <div class="hero-actions">
-      <a href="#how-to-enter" class="btn">SUBMIT TOP 50 TRACK</a>
-      <a href="#rules" class="btn btn-outline">FULL RULES</a>
     </div>
   </div>
 
@@ -220,87 +238,39 @@
       <h3>Season Overview</h3>
       <ul>
         <li>10-week TikTok competition (Week 1 Purge + 8 competition weeks + live Finale).</li>
-        <li>100% AI-generated music only (Suno, Udio, stems + custom prompts, etc.), except for the one secret human contestant.</li>
-        <li>One secret human contestant (traditional DAW, zero AI) hidden among the 50 entrants — the “Find the Glitch” twist.</li>
-        <li>All songs must be in English (80%+ lyrics) for fair voting and judging.</li>
-        <li>Open to creators 18+. Identity verification required prior to prize delivery.</li>
+        <li>100% AI-generated music only, except for the one secret human contestant.</li>
+        <li>One secret human contestant (traditional DAW, zero AI) hidden among the 50 entrants.</li>
+        <li>All songs must be in English (80%+ lyrics).</li>
+        <li>Open to creators 18+. Identity verification required for prizes.</li>
       </ul>
 
       <h3>Week 1: The Great Purge (50 → 25)</h3>
       <ul>
-        <li>Open submissions to 50 contestants.</li>
-        <li>Submissions open from announcement until Wednesday the week prior to show start.</li>
         <li>Combined score elimination of Algorithm + Judges reduces the field from 50 to 25.</li>
-        <li>We encourage all 50 artists to make full use of their network for likes, shares, comments, duets, and live views from day one.</li>
+        <li>Artists are encouraged to leverage their network for engagement from day one.</li>
       </ul>
 
       <h3>Core Format (Weeks 2–10)</h3>
       <ol>
-        <li><strong style="color: var(--cyan);">Safety Round</strong> (Judges + Algorithm)<br>
-        5 human judges score each track (1–10). Scores averaged into Panel Score.<br>
-        Algorithm Score contributes <strong>50% to the combined safety score</strong>.<br>
-        Combined score = Top X safe (“The Algorithm has spoken — you’re safe!”).</li>
-        
-        <li style="margin-top: 15px;"><strong style="color: var(--magenta);">Elimination Round</strong> (Pure Human Vote)<br>
-        Bottom group goes to public vote only.<br>
-        Fans must vote using the hashtag <strong>#Save[contestantname]week[number]</strong>.<br>
-        Lowest vote-getter is eliminated.</li>
+        <li><strong style="color: var(--cyan);">Safety Round</strong> (Judges + Algorithm): Algorithm Score contributes 50% to the safety score. Top X are safe.</li>
+        <li style="margin-top: 10px;"><strong style="color: var(--magenta);">Elimination Round</strong> (Pure Human Vote): Bottom group goes to public vote using <strong>#Save[name]week[number]</strong>.</li>
       </ol>
 
-      <h3>NEXUS — The AI Judge</h3>
-      <p>After safety is announced, <strong>NEXUS</strong> (the living algorithm entity) awakens and injects <strong>ONE GLITCH POWER</strong> that carries into the next challenge.</p>
-
       <h3>The Secret Human Twist — “Find the Glitch”</h3>
-      <p>One of the 50 original contestants is <strong>100% human</strong> (traditional DAW, zero AI tools).<br>
-      The human is treated exactly like every other contestant.<br>
-      Judges and audience do <strong>not</strong> know who it is until the Finale reveal.<br>
-      <strong>Launch / Week 1:</strong> “50 Artists. 1 is Human. Find the Glitch.”<br>
-      <strong>Finale (Top 3):</strong> Winner announced first. Then — if the human made Top 3 — they step forward and reveal: “I never touched AI once.”</p>
-      <p>This twist settles the “AI has no soul” debate in public, on camera, forever.</p>
-
-      <h3>Human Judges</h3>
-      <p>Core 5-person panel (TBA — more names to be announced soon).</p>
-      <p>Judging format: One live judging session per week (60–90 minutes).</p>
+      <p>The human is treated exactly like every other contestant. No one knows who it is until the Finale. If the human makes the Top 3, the reveal happens live after the winner is announced.</p>
 
       <h3>Weekly Flow & Challenges</h3>
       <ul>
-        <li>Submissions open <strong>Tuesday 12:00 PM PST</strong> and close <strong>Wednesday 12:00 PM PST</strong> (exactly 24 hours) for Weeks 2–10.</li>
-        <li>Challenge announced same day as the live judging stream on Friday.</li>
-        <li>Friday: Live judging session + safety reveal. NEXUS Glitch Power reveal closes every live stream.</li>
-        <li>Weekend: Popular vote elimination opens Friday immediately after live stream and closes Monday morning at 12:01 AM PST.</li>
+        <li><strong>Tues-Wed:</strong> Submission window (24 hours).</li>
+        <li><strong>Friday:</strong> Live judging session + safety reveal + NEXUS Glitch Power drop.</li>
+        <li><strong>Weekend:</strong> Popular vote elimination opens Friday, closes Monday 12:01 AM PST.</li>
       </ul>
-
-      <p><strong>Sample Challenges</strong><br>
-      - Signature Track* (original submission)<br>
-      - Viral Banger<br>
-      - AI Music Video Week</p>
-      <p>Actual challenges will be announced every week during the live judging stream.</p>
-      <p>All 25 contestants will be asked to submit directly to Glitched Records a second track that will be used exclusively as a head-to-head sudden death battle track showcasing their best work in the event of an elimination tie during the main 8 weeks of the show. Judges scores will be the final determining factor in cases of sudden death battle. In case of a tie during the finale live stream, the tracks in question will both be run through NEXUS who will determine the tie breaker.</p>
-
-      <h3>Entry & Eligibility</h3>
-      <ul>
-        <li>Open to creators 18+.</li>
-        <li>Must disclose AI tools used in comments or pinned note.</li>
-        <li>By entering you grant Glitched Records and partners a perpetual, non-exclusive, worldwide, royalty-free license to use your submission, performance, name, image, likeness, and any AI-generated persona for promotion of the show.</li>
-        <li>Honor system + random prompt/stem verification possible.</li>
-        <li>No previous major-label distribution.</li>
-        <li>All open-call submissions for the top 50 must use <strong>#IAmTheAlgorithmIdol</strong></li>
-      </ul>
+      <p><em>*Challenges announced weekly on stream.</em></p>
 
       <h3>Prizes</h3>
       <ul>
         <li>Weekly: Spotlights, judge shoutouts, playlist adds.</li>
-        <li>Finale Winner: Cash + lifetime Suno membership (or equivalent perpetual high-tier credits) + Glitched Records merch drop + special prizes provided by our judging panel TBA + full promotional push.</li>
-      </ul>
-
-      <h3>Legal & Safety Disclaimers</h3>
-      <ul>
-        <li>All music must be original, English-language, and AI-generated by the contestant (except the one planned human twist). Glitched Records reserves the right to request full prompt/stem verification.</li>
-        <li>The secret human contestant is a planned production twist and will be revealed publicly.</li>
-        <li>Voting, Algorithm Scores, and Glitch Powers are final. No appeals.</li>
-        <li>Prizes subject to sponsor confirmation. Taxes are winner’s responsibility.</li>
-        <li>Contest complies with TikTok Community Guidelines. Any violation = immediate disqualification.</li>
-        <li>Glitched Records is not responsible for TikTok algorithm changes, technical issues, or lost votes.</li>
+        <li>Finale Winner: Cash + lifetime Suno membership + Glitched Records merch + full promo push.</li>
       </ul>
     </div>
   </section>
