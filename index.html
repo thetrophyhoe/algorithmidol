@@ -4,6 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Algorithm Idol • The Algorithm Saves You. The Humans Vote You Out.</title>
+  <meta name="description" content="Algorithm Idol: a 10-week TikTok competition for AI-generated music, presented by Glitched Records and hosted by The Trophy Hoe. 50 artists, 1 is human. Find the Glitch.">
+  <link rel="canonical" href="https://algorithmidol.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Algorithm Idol">
+  <meta property="og:url" content="https://algorithmidol.com/">
+  <meta property="og:title" content="Algorithm Idol • The Algorithm Saves You. The Humans Vote You Out.">
+  <meta property="og:description" content="Algorithm Idol: a 10-week TikTok competition for AI-generated music, presented by Glitched Records and hosted by The Trophy Hoe. 50 artists, 1 is human. Find the Glitch.">
+  <meta property="og:image" content="https://algorithmidol.com/logobannerai.jpg">
+  <meta property="og:image:width" content="1168">
+  <meta property="og:image:height" content="784">
+  <meta property="og:image:alt" content="Algorithm Idol banner">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Algorithm Idol • The Algorithm Saves You. The Humans Vote You Out.">
+  <meta name="twitter:description" content="Algorithm Idol: a 10-week TikTok competition for AI-generated music, presented by Glitched Records and hosted by The Trophy Hoe. 50 artists, 1 is human. Find the Glitch.">
+  <meta name="twitter:image" content="https://algorithmidol.com/logobannerai.jpg">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://algorithmidol.com/#website", "name": "Algorithm Idol", "url": "https://algorithmidol.com/", "publisher": {"@id": "https://www.glitchedrecords.com/#org"}}, {"@type": "CreativeWorkSeries", "@id": "https://algorithmidol.com/#series", "name": "Algorithm Idol", "url": "https://algorithmidol.com/", "description": "Algorithm Idol: a 10-week TikTok competition for AI-generated music, presented by Glitched Records and hosted by The Trophy Hoe. 50 artists, 1 is human. Find the Glitch.", "image": "https://algorithmidol.com/logobannerai.jpg", "genre": "Music competition", "keywords": "#AlgorithmIdol, #IAmTheAlgorithmIdol, Find the Glitch", "publisher": {"@id": "https://www.glitchedrecords.com/#org"}, "contributor": {"@type": "MusicGroup", "@id": "https://thetrophyhoe.com/#artist", "name": "The Trophy Hoe", "url": "https://thetrophyhoe.com/"}, "trailer": {"@type": "VideoObject", "name": "Algorithm Idol Teaser", "embedUrl": "https://www.youtube.com/embed/64DEcfG8CmQ", "thumbnailUrl": "https://i.ytimg.com/vi/64DEcfG8CmQ/hqdefault.jpg", "contentUrl": "https://www.youtube.com/watch?v=64DEcfG8CmQ", "description": "Algorithm Idol teaser."}}, {"@type": "Organization", "@id": "https://www.glitchedrecords.com/#org", "name": "Glitched Records", "url": "https://www.glitchedrecords.com/", "email": "stayglitched@glitchedrecords.com"}]}</script>
+  <script>
+    /* ===== JUDGES: edit this list to announce the panel =====
+       One entry per slot, in order (Judge 1 to Judge 5).
+       Leave a name as "TBA" until that judge is confirmed; swap in the
+       real name (e.g. "Jane Doe") and push. The slot then shows
+       "Judge 1" with the name underneath, exactly like "TBA" today. */
+    window.ALGORITHM_IDOL_JUDGES = ["TBA", "TBA", "TBA", "TBA", "TBA"];
+  </script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
     
@@ -283,6 +307,18 @@
       <div class="judge-slot">Judge 4<br>TBA</div>
       <div class="judge-slot">Judge 5<br>TBA</div>
     </div>
+    <script>
+      // Fills the slots above from ALGORITHM_IDOL_JUDGES in the <head>. Edit names there, not here.
+      (function () {
+        var names = window.ALGORITHM_IDOL_JUDGES || [];
+        document.querySelectorAll("#judges .judge-slot").forEach(function (slot, i) {
+          var name = (names[i] || "TBA").trim() || "TBA";
+          slot.textContent = "Judge " + (i + 1);
+          slot.appendChild(document.createElement("br"));
+          slot.appendChild(document.createTextNode(name));
+        });
+      })();
+    </script>
   </section>
 
   <footer>
